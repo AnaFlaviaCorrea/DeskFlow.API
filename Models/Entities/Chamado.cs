@@ -15,4 +15,5 @@ public class Chamado
     public Categoria Categoria { get; set; } = null!;
     public Prioridade Prioridade { get; set; }
     public StatusChamado Status { get; set; }
+    public ICollection<Interacao> Interacoes { get; set; } = new List<Interacao>();
 }
