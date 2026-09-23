@@ -15,4 +15,16 @@ public class AppDbContext : DbContext
     public DbSet<Chamado> Chamados { get; set; }
 
     public DbSet<Interacao> Interacoes { get; set; }
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    base.OnModelCreating(modelBuilder);
+
+    modelBuilder.Entity<Chamado>()
+        .Property(c => c.Prioridade)
+        .HasConversion<string>();
+
+    modelBuilder.Entity<Chamado>()
+        .Property(c => c.Status)
+        .HasConversion<string>();
+}
 }
