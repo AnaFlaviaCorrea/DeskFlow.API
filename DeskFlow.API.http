@@ -1,6 +1,41 @@
-@DeskFlow.API_HostAddress = http://localhost:5285
+@DeskFlow_API_HostAddress = http://localhost:5285
 
-GET {{DeskFlow.API_HostAddress}}/weatherforecast/
+### Listar categorias
+
+GET {{DeskFlow_API_HostAddress}}/api/categorias
 Accept: application/json
 
 ###
+
+### Criar categoria
+
+POST {{DeskFlow_API_HostAddress}}/api/categorias
+Content-Type: application/json
+
+{
+  "nome": "Teste delete"
+}
+
+###
+
+### Buscar categoria por Id
+
+GET {{DeskFlow_API_HostAddress}}/api/categorias/1
+Accept: application/json
+###
+
+### Atualizar categoria
+
+PUT {{DeskFlow_API_HostAddress}}/api/categorias/1
+Content-Type: application/json
+
+{
+  "nome": "Hardware e Periféricos"
+}
+
+###
+
+### Excluir categoria
+
+DELETE {{DeskFlow_API_HostAddress}}/api/categorias/5
+Accept: application/json
