@@ -12,7 +12,7 @@ public class Chamado
     public DateTime? DataFechamento { get; set; }
     public string? Solucao { get; set; }
     public int CategoriaId { get; set; }
-    public Categoria Categoria { get; set; } = null!;
+    public Categoria? Categoria { get; set; } 
     public Prioridade Prioridade { get; set; }
     public StatusChamado Status { get; set; }
     public ICollection<Interacao> Interacoes { get; set; } = new List<Interacao>();

@@ -2,7 +2,7 @@
 
 ### Listar categorias
 
-GET {{DeskFlow_API_HostAddress}}/api/categorias/999
+GET {{DeskFlow_API_HostAddress}}/api/categorias/
 Accept: application/json
 
 ###
@@ -13,20 +13,20 @@ POST {{DeskFlow_API_HostAddress}}/api/categorias
 Content-Type: application/json
 
 {
-  "nome": ""
+  "nome": "Teste Chamado"
 }
 
 ###
 
 ### Buscar categoria por Id
 
-GET {{DeskFlow_API_HostAddress}}/api/categorias/1
+GET {{DeskFlow_API_HostAddress}}/api/categorias/8
 Accept: application/json
 ###
 
 ### Atualizar categoria
 
-PUT {{DeskFlow_API_HostAddress}}/api/categorias/1
+PUT {{DeskFlow_API_HostAddress}}/api/categorias/8
 Content-Type: application/json
 
 {
@@ -37,5 +37,18 @@ Content-Type: application/json
 
 ### Excluir categoria
 
-DELETE {{DeskFlow_API_HostAddress}}/api/categorias/999
+DELETE {{DeskFlow_API_HostAddress}}/api/categorias/6
 Accept: application/json
+
+### Criar chamado
+
+POST {{DeskFlow_API_HostAddress}}/api/chamados
+Content-Type: application/json
+
+{
+  "titulo": "Computador não liga",
+  "descricao": "Computador da sala 12 não apresenta sinal de energia.",
+  "prioridade": "Alta",
+  "solicitanteNome": "Ana",
+  "categoriaId": 8
+}
