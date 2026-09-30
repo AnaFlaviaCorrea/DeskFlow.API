@@ -4,6 +4,7 @@ using DeskFlow.API.Repositories;
 using DeskFlow.API.Repositories.Interfaces;
 using DeskFlow.API.Services;
 using DeskFlow.API.Services.Interfaces;
+using DeskFlow.API.Middlewares;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,7 +23,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 );
 
 var app = builder.Build();
-
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

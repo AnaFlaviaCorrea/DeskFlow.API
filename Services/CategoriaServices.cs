@@ -40,7 +40,7 @@ public class CategoriaService : ICategoriaService
     {
         if (string.IsNullOrWhiteSpace(categoria.Nome))
         {
-            throw new ArgumentException("O nome da categoria é obrigatório.");
+            throw new ArgumentException("O nome da categoria e obrigatorio.");
         }
 
         var categoriaExistente =

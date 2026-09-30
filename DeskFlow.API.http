@@ -2,7 +2,7 @@
 
 ### Listar categorias
 
-GET {{DeskFlow_API_HostAddress}}/api/categorias
+GET {{DeskFlow_API_HostAddress}}/api/categorias/999
 Accept: application/json
 
 ###
@@ -13,7 +13,7 @@ POST {{DeskFlow_API_HostAddress}}/api/categorias
 Content-Type: application/json
 
 {
-  "nome": "Teste delete"
+  "nome": ""
 }
 
 ###
@@ -37,5 +37,5 @@ Content-Type: application/json
 
 ### Excluir categoria
 
-DELETE {{DeskFlow_API_HostAddress}}/api/categorias/5
+DELETE {{DeskFlow_API_HostAddress}}/api/categorias/999
 Accept: application/json
