@@ -15,6 +15,8 @@ builder.Services.AddOpenApi();
 builder.Services.AddControllers();
 builder.Services.AddScoped<ICategoriaRepository, CategoriaRepository>();
 builder.Services.AddScoped<ICategoriaService, CategoriaService>();
+builder.Services.AddScoped<IChamadoRepository, ChamadoRepository>();
+builder.Services.AddScoped<IChamadoService, ChamadoService>();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(
