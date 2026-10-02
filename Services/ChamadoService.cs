@@ -75,4 +75,53 @@ public class ChamadoService : IChamadoService
 
         return chamado;
     }
+    public async Task IniciarAtendimentoAsync(int id)
+{
+    var chamado = await _chamadoRepository.ObterPorIdAsync(id);
+
+    if (chamado is null)
+    {
+        throw new KeyNotFoundException("Chamado não encontrado.");
+    }
+
+    if (chamado.Status != StatusChamado.Aberto)
+    {
+        throw new InvalidOperationException(
+            "Somente chamados com status Aberto podem ser iniciados."
+        );
+    }
+
+    chamado.Status = StatusChamado.EmAndamento;
+
+    await _chamadoRepository.AtualizarAsync(chamado);
+}
+public async Task EncerrarChamadoAsync(int id, string solucao)
+{
+    var chamado = await _chamadoRepository.ObterPorIdAsync(id);
+
+    if (chamado is null)
+    {
+        throw new KeyNotFoundException("Chamado não encontrado.");
+    }
+
+    if (chamado.Status != StatusChamado.EmAndamento)
+    {
+        throw new InvalidOperationException(
+            "Somente chamados em andamento podem ser encerrados."
+        );
+    }
+
+    if (string.IsNullOrWhiteSpace(solucao))
+    {
+        throw new ArgumentException(
+            "A solução do chamado é obrigatória."
+        );
+    }
+
+    chamado.Status = StatusChamado.Fechado;
+    chamado.Solucao = solucao;
+    chamado.DataFechamento = DateTime.Now;
+
+    await _chamadoRepository.AtualizarAsync(chamado);
+}
 }

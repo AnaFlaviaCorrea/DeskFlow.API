@@ -1,6 +1,7 @@
 using DeskFlow.API.Models.Entities;
 using DeskFlow.API.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using DeskFlow.API.Models.Requests;
 
 namespace DeskFlow.API.Controllers;
 
@@ -43,4 +44,24 @@ public class ChamadosController : ControllerBase
             chamadoCriado
         );
     }
+    [HttpPost("{id:int}/iniciar")]
+    public async Task<IActionResult> IniciarAtendimento(int id)
+    {
+        await _chamadoService.IniciarAtendimentoAsync(id);
+
+        return NoContent();
+    }
+    [HttpPost("{id:int}/encerrar")]
+public async Task<IActionResult> Encerrar(
+    int id,
+    EncerrarChamadoRequest request
+)
+{
+    await _chamadoService.EncerrarChamadoAsync(
+        id,
+        request.Solucao
+    );
+
+    return NoContent();
+}
 }

@@ -13,4 +13,6 @@ public interface ICategoriaService
     Task AtualizarAsync(int id, Categoria categoria);
 
     Task RemoverAsync(int id);
+
+  
 }

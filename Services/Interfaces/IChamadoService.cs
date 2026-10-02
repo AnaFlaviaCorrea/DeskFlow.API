@@ -9,4 +9,8 @@ public interface IChamadoService
     Task<Chamado> ObterPorIdAsync(int id);
 
     Task<Chamado> AdicionarAsync(Chamado chamado);
+
+    Task IniciarAtendimentoAsync(int id);
+
+    Task EncerrarChamadoAsync(int id, string solucao);
 }

@@ -26,7 +26,7 @@ Accept: application/json
 
 ### Atualizar categoria
 
-PUT {{DeskFlow_API_HostAddress}}/api/categorias/8
+PUT {{DeskFlow_API_HostAddress}}/api/categorias/9
 Content-Type: application/json
 
 {
@@ -50,5 +50,44 @@ Content-Type: application/json
   "descricao": "Computador da sala 12 não apresenta sinal de energia.",
   "prioridade": "Alta",
   "solicitanteNome": "Ana",
-  "categoriaId": 8
+  "categoriaId": 9
+}
+
+### Listar chamados
+
+GET {{DeskFlow_API_HostAddress}}/api/chamados
+Accept: application/json
+
+###
+
+### Buscar chamado por Id
+
+GET {{DeskFlow_API_HostAddress}}/api/chamados/1
+Accept: application/json
+
+###
+
+### Iniciar atendimento do chamado
+
+POST {{DeskFlow_API_HostAddress}}/api/chamados/1/iniciar
+
+### Encerrar chamado
+
+POST {{DeskFlow_API_HostAddress}}/api/chamados/2/encerrar
+Content-Type: application/json
+
+{
+  "solucao": ""
+}
+### Confirmar encerramento do chamado
+GET {{DeskFlow_API_HostAddress}}/api/chamados/1
+Accept: application/json
+
+
+###Tentando encerrar chamado já encerrado
+POST {{DeskFlow_API_HostAddress}}/api/chamados/1/encerrar
+Content-Type: application/json
+
+{
+  "solucao": "Outro texto"
 }
