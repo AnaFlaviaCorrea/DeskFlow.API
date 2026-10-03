@@ -93,13 +93,46 @@ Content-Type: application/json
 }
 ### Adicionar interação
 
-POST {{DeskFlow_API_HostAddress}}/api/chamados/1/interacoes
+POST {{DeskFlow_API_HostAddress}}/api/chamados/3/interacoes
 Content-Type: application/json
 
 {
   "autor": "Carlos",
-  "mensagem": "Equipamento recebido para análise."
+  "mensagem": ""
 }
 ### Verificar interação
 GET {{DeskFlow_API_HostAddress}}/api/chamados/3
+Accept: application/json
+
+### Todos os chamados
+
+GET {{DeskFlow_API_HostAddress}}/api/chamados
+Accept: application/json
+
+###
+
+### Filtrar por status
+
+GET {{DeskFlow_API_HostAddress}}/api/chamados?status=Aberto
+Accept: application/json
+
+###
+
+### Filtrar por prioridade
+
+GET {{DeskFlow_API_HostAddress}}/api/chamados?prioridade=Alta
+Accept: application/json
+
+###
+
+### Filtrar por categoria
+
+GET {{DeskFlow_API_HostAddress}}/api/chamados?categoriaId=9
+Accept: application/json
+
+###
+
+### Filtros combinados
+
+GET {{DeskFlow_API_HostAddress}}/api/chamados?status=Fechado&prioridade=Alta&categoriaId=8
 Accept: application/json
