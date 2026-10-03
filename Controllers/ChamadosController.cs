@@ -10,10 +10,12 @@ namespace DeskFlow.API.Controllers;
 public class ChamadosController : ControllerBase
 {
     private readonly IChamadoService _chamadoService;
+    private readonly IInteracaoService _interacaoService;
 
-    public ChamadosController(IChamadoService chamadoService)
+    public ChamadosController(IChamadoService chamadoService, IInteracaoService interacaoService)
     {
         _chamadoService = chamadoService;
+        _interacaoService = interacaoService;
     }
 
     [HttpGet]
@@ -52,16 +54,30 @@ public class ChamadosController : ControllerBase
         return NoContent();
     }
     [HttpPost("{id:int}/encerrar")]
-public async Task<IActionResult> Encerrar(
+    public async Task<IActionResult> Encerrar(
     int id,
     EncerrarChamadoRequest request
 )
-{
-    await _chamadoService.EncerrarChamadoAsync(
-        id,
-        request.Solucao
-    );
+    {
+        await _chamadoService.EncerrarChamadoAsync(
+            id,
+            request.Solucao
+        );
 
-    return NoContent();
-}
+        return NoContent();
+    }
+    [HttpPost("{id:int}/interacoes")]
+    public async Task<IActionResult> AdicionarInteracao(
+        int id,
+        AdicionarInteracaoRequest request
+    )
+    {
+        var interacao = await _interacaoService.AdicionarAsync(
+            id,
+            request.Autor,
+            request.Mensagem
+        );
+
+        return Ok(interacao);
+    }
 }

@@ -62,14 +62,14 @@ Accept: application/json
 
 ### Buscar chamado por Id
 
-GET {{DeskFlow_API_HostAddress}}/api/chamados/1
+GET {{DeskFlow_API_HostAddress}}/api/chamados/2
 Accept: application/json
 
 ###
 
 ### Iniciar atendimento do chamado
 
-POST {{DeskFlow_API_HostAddress}}/api/chamados/1/iniciar
+POST {{DeskFlow_API_HostAddress}}/api/chamados/2/iniciar
 
 ### Encerrar chamado
 
@@ -77,7 +77,7 @@ POST {{DeskFlow_API_HostAddress}}/api/chamados/2/encerrar
 Content-Type: application/json
 
 {
-  "solucao": ""
+  "solucao": "Fonte substituída e equipamento testado."
 }
 ### Confirmar encerramento do chamado
 GET {{DeskFlow_API_HostAddress}}/api/chamados/1
@@ -91,3 +91,15 @@ Content-Type: application/json
 {
   "solucao": "Outro texto"
 }
+### Adicionar interação
+
+POST {{DeskFlow_API_HostAddress}}/api/chamados/1/interacoes
+Content-Type: application/json
+
+{
+  "autor": "Carlos",
+  "mensagem": "Equipamento recebido para análise."
+}
+### Verificar interação
+GET {{DeskFlow_API_HostAddress}}/api/chamados/3
+Accept: application/json
