@@ -13,7 +13,7 @@ POST {{DeskFlow_API_HostAddress}}/api/categorias
 Content-Type: application/json
 
 {
-  "nome": "Teste Chamado"
+  "nome": "Redes"
 }
 
 ###
@@ -46,11 +46,11 @@ POST {{DeskFlow_API_HostAddress}}/api/chamados
 Content-Type: application/json
 
 {
-  "titulo": "Computador não liga",
-  "descricao": "Computador da sala 12 não apresenta sinal de energia.",
+   "titulo": "Sem acesso à internet",
+  "descricao": "Computador do setor administrativo está sem conexão.",
   "prioridade": "Alta",
-  "solicitanteNome": "Ana",
-  "categoriaId": 9
+  "solicitanteNome": "Mariana",
+  "categoriaId": 10
 }
 
 ### Listar chamados
@@ -62,22 +62,22 @@ Accept: application/json
 
 ### Buscar chamado por Id
 
-GET {{DeskFlow_API_HostAddress}}/api/chamados/2
+GET {{DeskFlow_API_HostAddress}}/api/chamados/4
 Accept: application/json
 
 ###
 
 ### Iniciar atendimento do chamado
 
-POST {{DeskFlow_API_HostAddress}}/api/chamados/2/iniciar
+POST {{DeskFlow_API_HostAddress}}/api/chamados/4/iniciar
 
 ### Encerrar chamado
 
-POST {{DeskFlow_API_HostAddress}}/api/chamados/2/encerrar
+POST {{DeskFlow_API_HostAddress}}/api/chamados/4/encerrar
 Content-Type: application/json
 
 {
-  "solucao": "Fonte substituída e equipamento testado."
+  "solucao": "Cabo de rede substituído e conexão restabelecida."
 }
 ### Confirmar encerramento do chamado
 GET {{DeskFlow_API_HostAddress}}/api/chamados/1
@@ -93,15 +93,15 @@ Content-Type: application/json
 }
 ### Adicionar interação
 
-POST {{DeskFlow_API_HostAddress}}/api/chamados/3/interacoes
+POST {{DeskFlow_API_HostAddress}}/api/chamados/4/interacoes
 Content-Type: application/json
 
 {
-  "autor": "Carlos",
-  "mensagem": ""
+  "autor": "Técnico",
+  "mensagem": "Conectividade e cabeamento sendo verificados."
 }
 ### Verificar interação
-GET {{DeskFlow_API_HostAddress}}/api/chamados/3
+GET {{DeskFlow_API_HostAddress}}/api/chamados/4
 Accept: application/json
 
 ### Todos os chamados
