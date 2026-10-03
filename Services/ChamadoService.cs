@@ -14,10 +14,18 @@ public class ChamadoService : IChamadoService
         _chamadoRepository = chamadoRepository;
     }
 
-    public async Task<List<Chamado>> ObterTodosAsync()
-    {
-        return await _chamadoRepository.ObterTodosAsync();
-    }
+   public async Task<List<Chamado>> ObterTodosAsync(
+    StatusChamado? status,
+    Prioridade? prioridade,
+    int? categoriaId
+)
+{
+    return await _chamadoRepository.ObterTodosAsync(
+        status,
+        prioridade,
+        categoriaId
+    );
+}
 
     public async Task<Chamado> ObterPorIdAsync(int id)
     {
