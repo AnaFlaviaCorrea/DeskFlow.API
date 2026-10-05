@@ -151,7 +151,7 @@ contém requisições utilizadas para testar os principais endpoints da aplicaç
 
 ## 🎥 Vídeo de Apresentação
 
-[Link do vídeo de demonstração — adicionar após a gravação]
+[[Link do vídeo de demonstração](https://youtu.be/IdMhWfyNuP4)]
 
 # 📄 Licença
 
